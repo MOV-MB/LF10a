@@ -9,10 +9,15 @@ const HomeScreen: React.FC = () => {
     navigation.navigate('Profile' as never);
   };
 
+  const goToSwiping = () => {
+    navigation.navigate('Swiping' as never);
+  };
+
   return (
     <View>
       <Text>Home Screen</Text>
       <Button title="Go to Profile" onPress={goToProfile} />
+      <Button title="Start Swiping" onPress={goToSwiping} />
     </View>
   );
 };

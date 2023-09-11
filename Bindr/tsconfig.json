@@ -1,3 +1,7 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "include": [
+    "src",
+    "Bindr/screens/SwipingScreen/react-native-swip-cards.d.ts"
+  ]
 }
