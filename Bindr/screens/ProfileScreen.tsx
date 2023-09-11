@@ -7,7 +7,7 @@ const ProfileScreen: React.FC = () => {
     name: 'John Doe',
     age: 28,
     bio: 'I love hiking and exploring new places.',
-    profileImage: require('../assets/profile.jpg'), // Path to the user's profile image
+    profileImage: require('../assets/profile.jpg'),
   };
 
   return (

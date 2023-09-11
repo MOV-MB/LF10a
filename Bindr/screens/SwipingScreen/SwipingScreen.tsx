@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {
+  JSXElementConstructor,
+  ReactElement,
+  ReactNode,
+  ReactPortal,
+} from 'react';
 import {View, Text} from 'react-native';
 import Swiper from 'react-native-swipe-cards';
 
-const testCardImage = require('./testcard.jpg');
+// @ts-ignore
+import testCardImage = require('./testcard.jpg');
 
 const SwipingScreen: React.FC = () => {
   const cards = [{image: testCardImage}];
@@ -22,7 +28,15 @@ const SwipingScreen: React.FC = () => {
       <Text>Swiping Screen</Text>
       <Swiper
         cards={cards}
-        renderCard={cardData => (
+        renderCard={(cardData: {
+          name:
+            | string
+            | number
+            | boolean
+            | ReactElement<any, string | JSXElementConstructor<any>>
+            | Iterable<ReactNode>
+            | ReactPortal;
+        }) => (
           <View>
             <Text>{cardData.name}</Text>
             {/* Other card content */}
