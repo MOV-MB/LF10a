@@ -30,7 +30,7 @@ local.properties
 *.hprof
 .cxx/
 *.keystore
-!debug.keystore
+!android/app/debug.keystore
 
 # node.js
 #
@@ -141,4 +141,6 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
+# Custom
 .env
+google-services.json

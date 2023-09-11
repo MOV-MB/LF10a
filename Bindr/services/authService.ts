@@ -7,8 +7,15 @@ const register = async (email: string, password: string) => {
       password,
     );
     return userCredential.user;
-  } catch (error) {
-    throw error;
+  } catch (error: any) {
+    if (error.code === 'auth/email-already-in-use') {
+      console.log('That email address is already in use!');
+    }
+    if (error.code === 'auth/invalid-email') {
+      console.log('That email address is invalid!');
+    } else {
+      console.error(error);
+    }
   }
 };
 
@@ -19,8 +26,15 @@ const login = async (email: any, password: any) => {
       password,
     );
     return userCredential.user;
-  } catch (error) {
-    throw error;
+  } catch (error: any) {
+    if (error.code === 'auth/invalid-email') {
+      console.log('That email address is invalid!');
+    }
+    if (error.code === 'auth/wrong-password') {
+      console.log('Password is incorrect!');
+    } else {
+      console.error(error);
+    }
   }
 };
 
