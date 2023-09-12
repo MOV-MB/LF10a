@@ -37,5 +37,12 @@ const login = async (email: any, password: any) => {
     }
   }
 };
+const logout = async (): Promise<void> => {
+  try {
+    await auth().signOut();
+  } catch (error: any) {
+    console.error(error);
+  }
+};
 
-export {register, login};
+export {register, login, logout};

@@ -1,16 +1,17 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, Button} from 'react-native';
-import {register} from '../../services/authService'; // Import your authentication service
+import {register} from '../../services/authService';
+import {useNavigation} from '@react-navigation/native';
 
 const RegisterScreen = () => {
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleRegister = async () => {
     try {
-      await register(email, password); // Call the register function from authService
-      // Redirect to the login screen upon successful registration
-      // You can use navigation for this purpose
+      await register(email, password);
+      navigation.navigate('Home' as never);
     } catch (error) {
       console.error('Registration error:', error);
       // Handle registration error, e.g., show an error message to the user
