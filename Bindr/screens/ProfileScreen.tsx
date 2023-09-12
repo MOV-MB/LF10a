@@ -10,13 +10,10 @@ const ProfileScreen: React.FC = () => {
     profileImage: require('../assets/profile.jpg'),
   });
 
-  // State variables for editing
   const [isEditing, setIsEditing] = useState(false);
   const [editedName, setEditedName] = useState(userData.name);
   const [editedAge, setEditedAge] = useState(userData.age.toString());
   const [editedBio, setEditedBio] = useState(userData.bio);
-
-  // Function to save edited data
   const saveChanges = () => {
     setUserData({
       ...userData,
