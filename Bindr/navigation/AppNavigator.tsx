@@ -11,10 +11,10 @@ const Stack = createStackNavigator();
 const AppNavigator: React.FC = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
+      <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="Swiping" component={SwipingScreen} />
     </Stack.Navigator>
   );

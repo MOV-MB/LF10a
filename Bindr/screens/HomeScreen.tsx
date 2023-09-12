@@ -1,24 +1,24 @@
 import React, {useContext} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
+import {Button} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import {UserContext} from './Auth/AuthContext';
+import {logout} from '../services/authService';
 
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation();
   const currentUser = useContext(UserContext);
 
-  const goToProfile = () => {
-    navigation.navigate('Profile' as never);
-  };
-
-  const goToChat = () => {
-    navigation.navigate('Chat' as never);
-  };
-
   const goToLogin = () => {
     navigation.navigate('Login' as never);
   };
-
+  const goToProfile = () => {
+    navigation.navigate('Profile' as never);
+  };
+  const goToChat = () => {
+    console.log('Not Implemented yet');
+    //navigation.navigate('Chat' as never);
+  };
   const goToSwiping = () => {
     navigation.navigate('Swiping' as never);
   };
@@ -26,18 +26,37 @@ const HomeScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome {currentUser?.email}</Text>
-      <TouchableOpacity style={styles.button} onPress={goToProfile}>
-        <Text style={styles.buttonText}>Go to Profile</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={goToSwiping}>
-        <Text style={styles.buttonText}>Start Swiping</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={goToChat}>
-        <Text style={styles.buttonText}>Go to Chat</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={goToLogin}>
-        <Text style={styles.buttonText}>Go to Login</Text>
-      </TouchableOpacity>
+      <Button
+        mode="contained"
+        onPress={goToProfile}
+        style={styles.button}
+        labelStyle={styles.buttonText}>
+        Go to Profile
+      </Button>
+      <Button
+        mode="contained"
+        onPress={goToSwiping}
+        style={styles.button}
+        labelStyle={styles.buttonText}>
+        Start Swiping
+      </Button>
+      <Button
+        mode="contained"
+        onPress={goToChat}
+        style={styles.button}
+        labelStyle={styles.buttonText}>
+        Go to Chat
+      </Button>
+      <Button
+        mode="contained"
+        onPress={() => {
+          logout();
+          goToLogin();
+        }}
+        style={styles.button}
+        labelStyle={styles.buttonText}>
+        Logout
+      </Button>
     </View>
   );
 };
@@ -58,7 +77,6 @@ const styles = StyleSheet.create({
   button: {
     width: '100%',
     paddingVertical: 15,
-    backgroundColor: '#007AFF',
     borderRadius: 8,
     marginBottom: 10,
   },
