@@ -1,8 +1,8 @@
 name: react-native-android-build-apk
 on:
   push:
-    branches:
-      - master
+    tags:
+      - '*'
 jobs:
   install-and-test:
     runs-on: ubuntu-latest
@@ -22,11 +22,6 @@ jobs:
       - name: Build Android Release
         run: |
           cd Bindr && cd android && chmod +x ./gradlew && ./gradlew assembleRelease
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: Bindr-Release.apk
-          path: Bindr/android/app/build/outputs/apk/release/
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
