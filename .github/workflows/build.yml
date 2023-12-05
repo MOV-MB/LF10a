@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install npm dependencies
         run: |
-          npm install
+          cd Bindr && npm install
   build-android:
     needs: install-and-test
     runs-on: ubuntu-latest
@@ -18,10 +18,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install npm dependencies
         run: |
-          npm install
+          cd Bindr && npm install
       - name: Build Android Release
         run: |
-          cd android && ./gradlew assembleRelease
+          cd Bindr && cd android && ./gradlew assembleRelease
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
