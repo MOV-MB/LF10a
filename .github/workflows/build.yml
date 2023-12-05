@@ -26,4 +26,9 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: Bindr-Release.apk
-          path: android/app/build/outputs/apk/release/
+          path: Bindr/android/app/build/outputs/apk/release/
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "Bindr/android/app/build/outputs/apk/release/Bindr-Release.apk"
+          token: ${{ secrets.GITHUB_TOKEN }}
