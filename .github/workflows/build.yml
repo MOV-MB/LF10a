@@ -32,5 +32,5 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "Bindr-Release.apk"
+          artifacts: "*.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
