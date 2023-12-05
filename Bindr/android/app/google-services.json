@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "462669699507",
+    "firebase_url": "https://lernfeld10a-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "lernfeld10a",
+    "storage_bucket": "lernfeld10a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462669699507:android:eba870f6ee6785649593c6",
+        "android_client_info": {
+          "package_name": "com.bindr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8tMHhDEoT0XZRIUAHarQB3OLaQjVKPeg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
