@@ -24,8 +24,13 @@ jobs:
       - name: Build Android Release
         run: |
           cd Bindr && cd android && chmod +x ./gradlew && ./gradlew assembleRelease
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+            name: Bindr-Release.apk
+            path: Bindr/android/app/build/outputs/apk/release/
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "Bindr/android/app/build/outputs/apk/release/Bindr-Release.apk"
+          artifacts: "Bindr-Release.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
